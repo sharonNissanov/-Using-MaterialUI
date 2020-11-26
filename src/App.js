@@ -1,18 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import IconTable from './component/firstTable/IconTable';
+import React, { useState } from "react";
 import BasicGrid from './component/BasicGrid';
-import img from './img.png'
-import LineChart from './component/graphSketch/LineChart';
+import img from './images/img.png';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 function App() {
-  return (
-    <div className="App" >
-      <BasicGrid/>
-{/* <img src={img} style={{height:"100"}} /> */}
 
-<div></div>
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      background:"#444",
+      position:"relative",
+      width:"100%",
+      alignItems: 'center',
+      fontSize:"12px",
+      fontWeight:"bold",
+    },
+  }));
+
+  const [show, setShow] = useState(false);
+  const classes = useStyles();
+
+
+  const handleClick = () => {
+    if(show)
+    {
+      setShow(false);
+    }
+    else
+      setShow(true);
+  }
+
+  return (
+    <div >
+      <Button className={classes.root} onClick={handleClick} >Click here to see the {show ? "source" :"result"}</Button>
+      {show===false ? 
+      <img src={img} style={{height:"90%", width:"100%"}} />
+      :<BasicGrid/>} 
+    
     </div>
   );
 }

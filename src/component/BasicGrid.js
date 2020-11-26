@@ -12,6 +12,7 @@ import SellAndBuy from './sellAndBuy/SellAndBuy';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position:"inherit",
     flexGrow: 1, 
     backgroundColor: "#0d1521",
     },
